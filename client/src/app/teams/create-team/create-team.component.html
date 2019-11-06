@@ -1,0 +1,25 @@
+<h1 class="text-center text-white">Create team and invite your friends</h1>
+<form class="mt-5 h-50 d-flex justify-content-center align-items-center" [formGroup]="this.createTeamForm" (ngSubmit)="this.createTeam(teamName.value)">
+  <div class="form-group">
+
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-header text-center text-muted">Enter team name </div>
+      <div class="card-body">
+
+        <input formControlName="teamName" #teamName type="text" class="form-control" id="team-name">
+
+      </div>
+
+      <button type="submit" class="btn btn-adminAccept" [disabled]="createTeamForm.invalid">Create team</button>
+
+      <div *ngIf="!!this.createTeamForm.controls.teamName.invalid && !!this.createTeamForm.controls.teamName.dirty"
+        class="alert alert-danger" role="alert">
+        <div *ngIf="!this.createTeamForm.controls.teamName.errors.minLength">
+          Team must be at least 3 characters long!
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</form>

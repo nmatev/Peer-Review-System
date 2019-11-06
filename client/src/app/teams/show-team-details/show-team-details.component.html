@@ -1,0 +1,65 @@
+<h1 class="text-white text-center">{{team.name}} team details</h1>
+<div class="row" style="color:white">
+
+    <div class="col-md-3 mt-4">
+        <ul>
+            <li>
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center text-muted">{{team.name}} members</div>
+                    <div class="card-body">
+                        <div *ngFor="let member of teamMembers" (click)="this.adminSelectMemberForRemoving(member)">
+                            {{member.name}}
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-adminReject" (click)="this.leaveTeam()">Leave team</button>
+                </div>
+
+            </li>
+
+        </ul>
+
+        <!-- members to invite -->
+        <div *ngIf="isComponentVisible(this.selectedMembers)" class="card text-white bg-dark mb-3"
+            style="max-width: 18rem;">
+            <div class="card-header text-center text-muted">{{team.name}} members to invite</div>
+            <div class="card-body">
+                <div class="selectedMembers" *ngFor="let member of selectedMembers">
+                    <div (click)="this.RemoveMemberFromInvite(member)">{{member.name}}</div>
+
+
+                </div>
+
+            </div>
+            <button class="btn btn-adminAccept" (click)="this.inviteMembers()">
+                Invite members
+            </button>
+        </div>
+
+
+        <!-- admin array showing the members for removing -->
+        <div *ngIf="isComponentVisible(this.selectedMembersForRemove)" class="card text-white bg-dark mb-3"
+            style="max-width: 18rem;">
+            <div class="card-header text-center text-muted">{{team.name}} members to remove</div>
+            <div class="card-body">
+                <div *ngFor="let member of this.selectedMembersForRemove">
+                    <div (click)="this.adminCancelMemberForRemoving(member)">{{member.name}}</div>
+
+
+                </div>
+
+            </div>
+            <button *ngIf="this.isAdmin" class="btn btn-adminRemove" (click)="this.adminRemoveMembers()">
+                Remove members
+            </button>
+        </div>
+
+    </div>
+    <div class="col-md-9 m-auto pr-5">
+        <app-search-box [data]="this.allUsers" [addMembers]="true" class="col-md-8"
+            (selectedMemberEvent)="this.selectMemberForInvite($event)">
+        </app-search-box>
+    </div>
+
+</div>

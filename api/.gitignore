@@ -1,0 +1,15 @@
+```
+src/data/migration
+.idea/
+.vscode/
+node_modules/
+uploads/
+files/
+build/
+tmp/
+temp/
+src/data/migration
+```
+api/.env
+api/ormconfig.json
+api/src/config/config.service.ts

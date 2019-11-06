@@ -1,0 +1,12 @@
+.btn-adminAccept{
+    background: lawngreen;
+    color: black;
+    font-weight: bold;
+}
+.card{
+    width: 300px;
+}
+h1{
+    font-weight: 900;
+    margin: 2rem;
+}

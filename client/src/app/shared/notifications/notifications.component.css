@@ -1,0 +1,217 @@
+.auth-username {
+    margin-right: 20px;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .wrapper{
+    height: 16rem;
+    overflow-y: auto;
+  }
+  .chat-box-holder{
+    margin: 0.1rem 0.4rem;
+    width: 100%;
+    background-color: #2d3035;
+    border:1px solid black;
+  }
+  .chat-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .chat-input-holder{
+    position: absolute;
+    bottom: 1px;
+  }
+  .text-field{
+    background: transparent;
+    border: 1px solid black;
+    transform: scale(1, 1.2)
+  }
+  .chat-holder{
+    position: fixed !important;
+    right: 4rem;
+    bottom: 1rem;
+    color: white;
+  }
+  .messagers{
+    max-width: 70px;
+    border-right: 0.5px solid gray;
+    height: 100%;
+  }
+  li{
+    padding: 0.1rem 0.3rem;
+    list-style-type: none;
+  }
+  .messager:hover{
+    cursor: pointer;
+    color: lawngreen;
+    transition: 0.2s all ease-in-out;
+  }
+  .chat-poppup{
+    width: 450px;
+    height: 350px;
+    background: #191c20;
+    margin-right: 0.5rem;
+    border-bottom: 1px solid lawngreen;
+  }
+  .messages-button{
+    transform: scale(1.3,1);
+    font-size: 3rem;
+    color: lawngreen;
+  }
+  .messages-button:hover{
+    cursor: pointer;
+  }
+  .icons-holder{
+    width: 2rem;
+    height: 2rem;
+    /* width: 36px;  
+    height: 36px; */
+  }
+  .fa-file-alt{
+    font-size: 1.25rem;
+  }
+  .bg-primary, .bg-success, .bg-warning{
+    border-radius: 5px;
+  }
+  .invitation:hover{
+    cursor: pointer;
+  }
+  .navbar{
+      background-color: #2d3035!important;
+      min-height: 80px;
+      border-bottom: 3px solid #34373d;
+  }
+  .far{
+      color: gray;
+      font-size: 1.5rem;
+      position: relative;
+      margin-top: 9px;
+  }
+  .far:hover{
+      cursor: pointer;
+      color: white;
+  }
+  #search-input{
+      max-width: 25rem;
+      width: 15rem;
+      min-width: 1rem;
+      border: 0;
+      padding: 0.5rem 1.3rem 0.5rem 1rem;
+      background: #191c20;
+      color: white;
+      border-radius: 0.5rem;
+  }
+  #logo:hover{
+      cursor:pointer;
+  }
+  .notification-counter{
+      position: absolute;
+      left: 51%;
+      width: 20px;
+      height: 20px;
+      color: #ffffff;
+      border-radius: 100%;
+      text-align: center;
+      font-size: 1rem;
+      font-family: "assistant-semibold", sans-serif;
+      line-height: 1.4;
+      top: -8px;
+      background: red;
+  }
+  
+  @media (min-width: 992px) {
+      .animate {
+        animation-duration: 0.8s;
+        -webkit-animation-duration: 0.8s;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+      }
+    }
+    
+    @keyframes slideIn {
+      0% {
+        transform: translateY(1rem);
+        opacity: 0;
+      }
+      100% {
+        transform:translateY(0rem);
+        opacity: 1;
+      }
+      0% {
+        transform: translateY(1rem);
+        opacity: 0;
+      }
+    }
+    
+    @-webkit-keyframes slideIn {
+      0% {
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
+      }
+      0% {
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
+      }
+    }
+    
+    .slideIn {
+      -webkit-animation-name: slideIn;
+      animation-name: slideIn;
+    }
+  
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+      font-size: 0.9rem;
+      margin-top: 0;
+      position: absolute;
+      top: 48px;
+      right: 0;
+      left: auto;
+      -webkit-box-shadow: 0px 0px 35px -3px black;
+      box-shadow: 0px 0px 35px -3px black;
+      /* background: #191c20; */
+      border: none;
+      border-radius: 4px;
+      padding: 0;
+    }
+  
+  .dropdown-toggle::after {
+      display:none;
+  }
+  
+  .dropdown-menu{
+    background: #2d3035;
+    border: 1px solid #393c43;
+    padding: 0px;
+  }
+  .dropdown-menu > div{
+    padding: 1rem;
+    color: white;
+    border-bottom: 1px solid #393c43;
+  }
+  .dropdown-menu > div:hover{
+    background: #191c20;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .mark-as-read-holder{
+    border-bottom: 1px solid orangered;
+  }
+  
+  .mark-as-read{
+    color: white;
+    margin: 5px 15px;
+  }
+  .mark-as-read:hover{
+    cursor: pointer;
+    color: lightblue;
+    transition: 0.3s all ease-in-out;
+    transform: scale(1.3)
+  }
+  .mark-as-read:active{
+    color: lightgreen;
+  }

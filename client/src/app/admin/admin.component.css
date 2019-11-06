@@ -1,0 +1,51 @@
+a{
+    text-decoration: none;
+}
+.green{
+    background: #1f9b30 !important;
+}
+.pink{
+    background: #da8795 !important;
+}
+.gold{
+    background: #b79c08 !important;
+}
+.purple{
+    background: #b307b3 !important;
+}
+h1{
+    color: #ebebeb!important;
+}
+h2{
+    color: #ebebeb !important;
+    font-weight: 600 !important;
+}
+.heading{
+    margin-bottom: 2rem;
+}
+.card{
+    min-height: 300px;
+    height: 300px;
+    border-bottom: 15px solid transparent;
+}
+.card:hover{
+    box-shadow: 0px -5px 30px 0px black;
+    cursor: pointer;
+    transition: .2s all linear;
+    transform: scale(0.95)
+}
+.card:hover:nth-child(1){
+    border-bottom: 15px solid lawngreen;
+}
+.card:hover:nth-child(2){
+    border-bottom: 15px solid orangered;
+}
+.card:hover:nth-child(3){
+    border-bottom: 15px solid gold;
+}
+.card:hover:nth-child(4){
+    border-bottom: 15px solid purple;
+}
+h1,h2{
+    font-weight: 900;
+}

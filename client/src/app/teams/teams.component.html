@@ -1,0 +1,32 @@
+<h1 class="text-center text-white m-5">Teams you're a part of:</h1>
+<ul>
+  <div class="row" style="color:white">
+    <div class="d-flex align-items-stretch">
+
+      <div (click)="this.createTeam()" class="card text-white bg-dark mb-3 team-creation" style="max-width: 18rem;">
+        <div class="card-header text-center text-muted p-4"></div>
+        <div class="card-body add-team d-flex justify-content-center align-items-center">
+          <i class="fas fa-plus"></i>
+        </div>
+        <button class="btn btn-success">Create new team</button>
+
+      </div>
+
+      <div class="ml-5 mb-3" *ngFor="let team of teamArr.teams">
+
+        <div class="card text-white bg-dark mb-3 h-100" style="max-width: 18rem;">
+          <div class="card-header text-center text-muted">{{team.name}} members</div>
+          <div class="card-body">
+            <div *ngFor="let member of teamArr.members">{{member.name}}</div>
+          </div>
+
+          <button class="btn btn-viewMore" (click)="this.getTeamDetails(team.id)">View more</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</ul>

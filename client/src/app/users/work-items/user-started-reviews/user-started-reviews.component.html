@@ -1,0 +1,25 @@
+<h1 class="text-center text-white m-2">Started workitems</h1>
+
+
+<div class="wrapper col-md-11 m-auto d-flex align-items-center justify-content-center card-group">
+  <div class="col-md-2 m-2 height" *ngFor="let reviewReq of reviewRequests">
+
+    <div [ngClass]="{'accepted': reviewReq.status=='Accepted',
+           'pending': reviewReq.status=='Pending', 
+           'rejected': reviewReq.status=='Rejected'}
+           " class="card text-white bg-dark mb-3 h-100">
+
+      <div class="card-header text-center text-muted">{{reviewReq.title}}</div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-center">{{reviewReq.status}}</h6>
+        <p class="card-text"> {{reviewReq.description | slice:0:25}} </p>
+      </div>
+
+      <button [ngClass]="{'btn-accepted': reviewReq.status=='Accepted',
+           'btn-pending': reviewReq.status=='Pending', 
+           'btn-rejected': reviewReq.status=='Rejected'}
+           " class="btn" (click)="this.openReviewRequest(reviewReq)">View more</button>
+    </div>
+
+  </div>
+</div>

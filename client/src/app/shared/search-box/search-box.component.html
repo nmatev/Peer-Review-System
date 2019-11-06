@@ -1,0 +1,129 @@
+<div>
+  <div class="md-form">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="Start searching for your item">
+  </div>
+
+  <table *ngIf="this.addMembers" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Registered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of data | filter:searchText; let i = index" (click)="this.selectMember(el)">
+        <td>{{i}}</td>
+        <td>{{el.name}}</td>
+        <td>{{el.email}}</td>
+        <td>{{el.createdOn | timeAgo}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.teamReviewRequests" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Team name</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="workItems" *ngFor="let el of data | filter:searchText; let i = index" (click)="this.openReviewRequest(el)">
+        <td>{{i}}</td>
+        <td>{{el.teamName}}</td>
+        <td>{{el.title}}</td>
+        <td>{{el.status}}</td>
+        <td>{{el.createdOn | timeAgo}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.adminAllWorkItems" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="workItems" *ngFor="let el of data | filter:searchText; let i = index" (click)="this.openReviewRequest(el)">
+        <td>{{i}}</td>
+        <td>{{el.__assignee__.name}}</td>
+        <td>{{el.title}}</td>
+        <td>{{el.status}}</td>
+        <td>{{el.createdOn | timeAgo}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.adminAllTeams" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Team name</th>
+        <th>Created on</th>
+        <th>Team author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="workItems" *ngFor="let el of data | filter:searchText; let i = index" (click)="this.openTeamDetails(el)">
+        <td>{{i}}</td>
+        <td>{{el.name}}</td>
+        <td>{{el.createdOn | timeAgo}}</td>
+        <th>{{el.__author__.email}}</th>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.adminAllTeamWorkItems" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Team</th>
+        <th>Title</th>
+        <th>Created on</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="workItems" *ngFor="let el of data | filter:searchText; let i = index"
+        (click)="this.openReviewRequest(el)">
+        <td>{{i}}</td>
+        <td>{{el.teamName}}</td>
+        <td>{{el.title}}</td>
+        <td>{{el.createdOn | timeAgo}}</td>
+        <td>{{el.tags}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.adminAllMembers" class="table table-striped text-white">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created on</th>
+      </tr>
+    </thead>
+    <tbody class="allUsers" *ngFor="let user of data | filter:searchText; let i = index;"
+      (click)="this.listAllUsers(user)">
+      <tr class="hover-member">
+        <td>{{i}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.createdOn | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

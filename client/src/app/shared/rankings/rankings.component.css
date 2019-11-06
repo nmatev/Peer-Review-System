@@ -1,0 +1,11 @@
+.team-chart-holder, .registered-chart-holder { 
+    color: white;
+}
+#topteamchartdiv,#topuserchartdiv {
+    height: 300px;
+    border-bottom: 2px solid orangered;
+}
+h3{
+    font-weight: bold;
+    margin: 2rem;
+}

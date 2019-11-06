@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid wrapper d-flex p-0">
+  <div *ngIf="this.isLoggedIn" class="pl-3 left-sidebar">
+    <app-left-sidebar></app-left-sidebar>
+  </div>
+
+  <div class="container-fluid main-holder p-0">
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-chat-box *ngIf="this.isLoggedIn"></app-chat-box>
+
+</div>

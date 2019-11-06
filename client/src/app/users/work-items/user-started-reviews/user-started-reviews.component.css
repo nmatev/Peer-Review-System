@@ -1,0 +1,98 @@
+.wrapper{
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+}
+.btn-accepted{
+    background: green;
+}
+.btn-pending{
+    background: yellow;
+}
+.btn-rejected{
+    background: red;
+}
+.btn{
+    color: black;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .2s ease-in-out all;
+    border: 1px solid black;
+}
+.col {
+    margin: 1rem;
+    list-style-type: none;
+}
+.height{
+    height: 200px;
+}
+.ul-padding {
+    padding: 1rem;
+}
+.btn-viewMore:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .2s all ease-in-out;
+}
+.card-text{
+    max-height: 250px;
+}
+.margin{
+    margin-bottom: 3rem !important;
+}
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: lavender;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 50px rgb(0, 0, 0, .5);
+    border: 2px solid rgb(0, 0, 0, .5) 
+}
+
+
+@keyframes test {
+    0% { border: 1px solid green; }
+    40% { border: 1px solid red; }
+    60% { border: 1px solid yellow; }
+    100% { border: 1px solid blue; }
+}
+.test{
+    animation: test 3000ms linear infinite;
+}
+
+@keyframes rejected {
+    0% { box-shadow: 0 0 -20px red; }
+    40% { box-shadow: 0 0 40px red; }
+    60% { box-shadow: 0 0 40px red; }
+    100% { box-shadow: 0 0 -20px red; }
+}
+.rejected{
+    animation: rejected ease-in-out 2000ms infinite;
+}
+
+@keyframes pending {
+    0% { box-shadow: 0 0 -20px gold; }
+    40% { box-shadow: 0 0 40px gold; }
+    60% { box-shadow: 0 0 40px gold; }
+    100% { box-shadow: 0 0 -20px gold; }
+}
+.pending{
+    animation: pending ease-in-out 2000ms infinite;
+}
+
+@keyframes accepted {
+    0% { box-shadow: 0 0 -20px lawngreen; }
+    40% { box-shadow: 0 0 40px lawngreen; }
+    60% { box-shadow: 0 0 40px lawngreen; }
+    100% { box-shadow: 0 0 -20px lawngreen; }
+}
+.accepted{
+    animation: accepted ease-in-out 2000ms infinite;
+}

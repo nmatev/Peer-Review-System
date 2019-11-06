@@ -1,0 +1,62 @@
+<div class="chat-holder d-flex">
+  <div *ngIf="this.chatState" class="chat-poppup animate slideIn">
+    <div class="chat-box d-flex">
+
+      <div class="messagers">
+        <!-- <li *ngFor="let messager of this.messagers" [class.lastMsger]="this.lastMsgerState"> -->
+        <li *ngFor="let messager of this.messagers" [ngStyle]="{
+              'color': this.lastMsgSender.id === messager.id ? 'darkorange' : ''
+            }">
+
+          <span (click)="this.openChat(messager)" class="messager">
+            {{messager.name | titlecase}}
+          </span>
+        </li>
+      </div>
+
+      <div *ngIf="this.chatAreaState" class="chat-box-holder">
+        <li *ngFor="let msg of this.messages">
+          <div>
+            <div *ngIf="msg.__receiver__.id === this.currentUserId">
+              <div class="mb-1">
+                <span class="msg-sender">
+                  <span class="w-50">
+                    {{msg.__sender__.name | titlecase}}: {{msg.message}}
+                  </span>
+                </span>
+                <div>
+                  <small class="msg-left-time">{{msg.createdOn | timeAgo}}</small>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="msg.__sender__.id === this.currentUserId">
+              <div class="mb-1 rightmsg">
+                <span class="msg-receiver">
+                  <span class="w-50">
+                    {{msg.__sender__.name | titlecase}}: {{msg.message}}
+                  </span>
+                </span>
+                <div>
+                  <small class="msg-right-time">{{msg.createdOn | timeAgo}}</small>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+      </div>
+
+
+    </div>
+    <div class="chat-input-holder">
+      <input #message class="text-field" type="text" placeholder="Message">
+      <i class="fa fa-paper-plane-o" (click)="this.createChatMessage(message.value); message.value= ''"></i>
+    </div>
+
+  </div>
+
+  <i class="fas fa-comment-alt messages-button align-self-end"></i>
+  <span *ngIf="!this.chatState" class="msg-counter">{{showMsgCounter}}</span>
+</div>

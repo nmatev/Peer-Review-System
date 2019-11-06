@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/admin/users">List All Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/admin/work-items">List all workItems</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/admin/teams">List all teams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/admin/team/work-items">List all team-review-requests</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-10 m-auto p-3 wrapper">
+  <h3 class="text-white text-center pb-2">Team members workitems</h3>
+  <app-search-box [data]="this.workItems" [adminAllWorkItems]="true"></app-search-box>
+</div>

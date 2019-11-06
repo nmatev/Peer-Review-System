@@ -1,0 +1,76 @@
+<i class="far fa-bell mr-5 fa-fill dropdown-toggle animate slideIn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">
+  <span *ngIf="this.notifications" class="notification-counter">{{this.notificationsCounter}}
+  </span>
+</i>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown">
+      <div class="wrapper dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+        <span class="d-flex justify-content-end mark-as-read-holder">
+          <small (click)="this.markNotificationsAsRead()" class="mark-as-read">
+            mark as read
+          </small>
+        </span>
+
+        <div (click)="this.openNotificationType(notification)" *ngFor="let notification of notifications"
+          class="dropdown-item">
+
+          <div class="team d-flex align-items-center justify-content-between" *ngIf="(notification.type === 'Team')">
+            <div class="mr-4 bg-warning icons-holder d-flex align-items-center justify-content-center">
+              <i class="fas fa-users"></i>
+            </div>
+            <div>
+              <div>
+                {{notification.message}}
+              </div>
+              <small class="d-flex justify-content-end">
+                <span>
+                  {{notification.createdOn | timeAgo}}
+                </span>
+              </small>
+            </div>
+
+          </div>
+
+          <div class=" invitation d-flex align-items-center justify-content-between"
+            *ngIf="(notification.type === 'Invitation')">
+            <div class="mr-4 bg-success icons-holder d-flex align-items-center justify-content-center">
+              <i class="fas fa-users"></i>
+            </div>
+            <div>
+              <div>
+                {{notification.message}}
+              </div>
+              <small class="d-flex justify-content-end">
+                <span>
+                  {{notification.createdOn | timeAgo}}
+                </span>
+              </small>
+            </div>
+
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between" *ngIf="(notification.type === 'WorkItem')">
+            <div class="mr-4 bg-primary icons-holder d-flex align-items-center justify-content-center">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div>
+              <div>
+                {{notification.message}}
+              </div>
+              <small class="d-flex justify-content-end">
+                <span>
+                  {{notification.createdOn | timeAgo}}
+                </span>
+              </small>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

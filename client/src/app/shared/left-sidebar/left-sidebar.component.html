@@ -1,0 +1,41 @@
+<div class="left-side-holder">
+  <ul class="left-menu">
+
+    <!-- <li class="d-flex align-items-center" routerLink="/user/submit-work" routerLinkActive="active">
+      <div class="icons-holder bg-primary rounded d-flex justify-content-center align-items-center">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <a>New document</a>
+    </li> -->
+
+    <li class="d-flex align-items-center" routerLink="/user/documents" routerLinkActive="active">
+      <div class="icons-holder bg-primary rounded d-flex justify-content-center align-items-center">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <a>Documents</a>
+    </li>
+
+    <li class="d-flex align-items-center" routerLink="/user/teams" routerLinkActive="active">
+      <!-- <li class="d-flex align-items-center" routerLink="/user/teams"> -->
+      <div class="icons-holder bg-primary rounded d-flex justify-content-center align-items-center">
+        <i class="fas fa-users"></i>
+      </div>
+      <a>Teams</a>
+    </li>
+
+    <li class="d-flex align-items-center" routerLink="/user/rankings" routerLinkActive="active">
+      <div class="icons-holder bg-primary rounded d-flex justify-content-center align-items-center">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <a>Rankings</a>
+    </li>
+
+    <li *ngIf="this.isAdmin" class="d-flex align-items-center" routerLink="/admin" routerLinkActive="active">
+      <div class="icons-holder bg-primary rounded d-flex justify-content-center align-items-center">
+          <i class="fas fa-user-shield"></i>
+      </div>
+      <a>Administration</a>
+    </li>
+
+  </ul>
+</div>

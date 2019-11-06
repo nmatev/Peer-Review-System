@@ -1,0 +1,86 @@
+<h1 class="text-center text-white m-4">Profile</h1>
+
+<div class="container h-100" *ngIf="this.user">
+  <div class="row card-holder">
+    <div class="col-sm-12 d-flex flex-row bg p-5">
+      <div class="col-sm-3 d-flex align-items-center flex-column">
+        <div class="avatar d-flex align-items-center justify-content-center">
+          <div *ngIf="this.profilePicture">
+            <img class="img" alt="User Image" [src]="this.profilePicture">
+          </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center flex-column m-2">
+          <h4>{{this.user.user.name | titlecase}}</h4>
+          <input class="inputfile" type="file" id="file" #file hidden
+            (change)="this.fileToUpload = $event.target.files[0]">
+          <label for="file">
+            <div class="file">
+              <i *ngIf="!this.fileToUpload" class="fas fa-upload mr-2"></i>
+              <span *ngIf="!this.fileToUpload">Choose avatar</span>
+              <span *ngIf="this.fileToUpload">{{this.fileToUpload.name}}</span>
+            </div>
+          </label>
+          <!-- <button *ngIf="this.fileToUpload" class="btn btn-save" (click)="this.uploadPicture()">Save</button> -->
+          <div *ngIf="this.user.user.roles[0].name === 'Basic'">
+            <button class="btn btn-save" (click)="this.promoteToAdmin()">Promote to admin</button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center flex-column justify-content-center">
+          <span class="text-center role" [ngClass]="{'adminstyle': this.isAdmin==true}">
+            Role - {{this.user.user.roles[0].name}}
+          </span>
+          <h4 class="neon" hidden>Admin</h4>
+          <span class="text-center">Joined on - {{this.user.user.createdOn | date: 'mediumDate'}}</span>
+          <span class="text-center">Email - {{this.user.user.email}}</span>
+          <button class="btn btn-save" hidden>Promote to Admin</button>
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="row h-50">
+          <div class="col-sm-6">
+            <h5 class="text-center">Team member of</h5>
+            <div class="d-flex justify-content-around align-items-center">
+              <div *ngFor="let team of this.user.team" (click)="this.openTeamDetails(team)"
+                class="team col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                <i class="fas fa-users"></i>
+                <div>
+                  {{team.teamName}}
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            <h5 class="text-center">Latest started workitems</h5>
+            <div class="d-flex justify-content-around align-items-center">
+              <div *ngFor="let workItem of this.user.workItems" (click)="this.openWorkItem(workItem)"
+                class="workItem col-sm-4 d-flex flex-column justify-content-center align-items-center">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                  {{workItem.status}}
+                </div>
+                <div><small>{{workItem.createdOn | timeAgo}}</small></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-sm-12 mt-4">
+            <h5 class="">More about me</h5>
+            <div class="d-flex justify-content-around align-items-center">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Odio totam quia architecto inventore culpa officia esse, porro atque il
+                lo dolores adipisci ad a accusamus. Dolorem tenetur dolore officiis repellat ducimus.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

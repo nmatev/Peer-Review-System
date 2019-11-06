@@ -1,0 +1,90 @@
+<div class="bg-picture h-100">
+  <div class="d-flex justify-content-center h-75">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sign Up</h3>
+        <div class="d-flex justify-content-end social_icon">
+          <span><i class="fab fa-facebook-square"></i></span>
+          <span><i class="fab fa-google-plus-square"></i></span>
+          <span><i class="fab fa-twitter-square"></i></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="this.registerFormGroup" (ngSubmit)="this.register(name.value, password.value,email.value)"
+          autocomplete="off">
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input #name autocomplete="off" formControlName="name" type="text" class="form-control"
+              placeholder="Name *">
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="!!(
+                  this.registerFormGroup.controls.name.invalid && this.registerFormGroup.controls.name.dirty
+                  )">
+            Name must be at last <strong>4 symbols!</strong>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <input #email autocomplete="off" #email matInput class="form-control" placeholder="Email *" type="email"
+              formControlName="email">
+          </div>
+          <div class="alert alert-danger" role="alert"
+            *ngIf="!!(this.registerFormGroup.controls.email.invalid && this.registerFormGroup.controls.email.dirty)">
+            Email is <strong>required!</strong>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input #password formControlName="password" type="password" class="form-control" placeholder="Password *">
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="!!(
+                  this.registerFormGroup.controls.password.invalid && this.registerFormGroup.controls.password.dirty
+                )">
+            Password must be at least <strong>4 symbols!</strong>
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input #password formControlName="confirmPassword" type="password" class="form-control"
+              placeholder="Confirm *">
+          </div>
+
+          <div
+            *ngIf="registerFormGroup.get('confirmPassword').invalid && registerFormGroup.get('confirmPassword').dirty"
+            class="alert alert-danger" role="alert">
+            Passwords must match
+            <div *ngIf="registerFormGroup.get('confirmPassword').hasError('required')" class="alert alert-danger"
+              role="alert">
+              test
+            </div>
+          </div>
+
+          <!-- <div class="alert alert-danger" role="alert"
+                  *ngIf="!!(this.registerFormGroup.controls.confirmPassword.errors.required && this.registerFormGroup.controls.confirmPassword.dirty)">Confirm Password is required
+                </div>
+                <div class="alert alert-danger" role="alert"
+                  *ngIf="!!(this.registerFormGroup.controls.confirmPassword.errors.mustMatch && this.registerFormGroup.controls.confirmPassword.dirty)">Passwords must match
+                </div> -->
+
+          <div class="form-group">
+            <input type="submit" value="Sign Up" class="btn float-right login_btn"
+              [disabled]="registerFormGroup.invalid">
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+          Already have an account?<a routerLink="/login">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

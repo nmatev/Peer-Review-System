@@ -1,0 +1,27 @@
+.btn-viewMore{
+    background-color: burlywood;
+    color: black;
+    font-weight: bold;
+}
+.btn-viewMore:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .2s all ease-in-out;
+}
+li{
+    list-style-type: none;
+}
+.fa-plus{
+    color: green;
+    font-size: 5rem;
+}
+.team-creation{
+    border: 1px solid transparent;
+}
+.team-creation:hover{
+    cursor: pointer;
+    border: 1px solid lawngreen;
+}
+h1{
+    font-weight: 900;
+}

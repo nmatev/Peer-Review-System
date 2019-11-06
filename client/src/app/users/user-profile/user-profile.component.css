@@ -1,0 +1,98 @@
+.profile-fb-container {
+    display: flex;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 4px;
+  }
+  .make-admin{
+    background: #ebeb;
+    color: black;
+    font-weight: 600;
+    margin: 0.5rem;
+  }
+  .role{
+    font-weight: 900;
+  }
+  .card-holder{
+    height: 60%;
+  }
+  .fa-users, .fa-file-alt{
+    font-size: 5rem;
+  }
+  .team, .workItem{
+    border: 1px solid transparent;
+  }
+  .team:hover, .workItem:hover{
+    cursor: pointer;
+    border-bottom: 1px solid orangered;
+    transform: scale(0.95);
+    transition: .2s ease-in-out all;
+  }
+
+  .neon{
+    transform: translate(-50%,-50%);
+    margin: 0;
+    font-size: 10rem;
+    color: #fff;
+  }
+  .neon::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25%;
+    width: 25%;
+    padding: 0 20px;
+    z-index: -1;
+    color: red;
+    filter: blur(15);
+  }
+  .neon::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 25%;
+    background: blue;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
+  }
+
+  .adminstyle{
+    color: red !important;
+    font-weight: 900;
+  }
+  .bg{
+    border-radius: 15px;
+    color:rgb(208, 208, 208);
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right top, #3d4246, #2a4e55, #0d5952, #23623c, #4e6618);
+  }
+  .avatar{
+    width: 200px;
+  }
+  .img{
+    border-radius: 100%;
+  }
+
+  .btn-save{
+    padding: 3px 38px;
+    background: darkgray;
+  }
+  .btn-save:hover{
+    cursor: pointer;
+    background: gold;
+    transform: scale(1.1);
+    transition: .2s ease-in-out all;
+  }
+  .file{
+    padding: 5px 0px;
+    margin: .2rem;
+  }
+  .file:hover{
+    cursor: pointer;
+    color: gold;
+  }

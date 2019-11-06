@@ -1,0 +1,57 @@
+.left-side-holder{
+    height: 100vh;
+    background-color: #2d3035 !important;
+    width: 13rem;
+}
+li:focus, a:focus{
+    outline: none;
+}
+.active{
+    background-color: #22252a;
+    border-bottom: 2px solid orangered;
+    display: none
+}
+
+.left-menu{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0px;
+    list-style-type: none;
+    color: #cccccc !important;
+    background-color: transparent;
+}
+ li{
+    padding: 2rem 0.5rem;
+    height: 2.5rem;
+    border: 2px solid transparent;
+}
+a{
+    color: inherit;
+    margin-left: 1rem;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.left-menu > li:hover{
+    cursor: pointer;
+    background-color: #22252a;
+    border-bottom: 2px solid orangered;
+    transition: all 0.3s ease-in-out;
+}
+
+.fa-file-import, .fa-users, .fa-trophy, .fa-user-shield{
+    font-size: 1.5rem;
+}
+
+.fas{
+    font-size: 1.25rem;
+}
+
+.icons-holder{
+    width: 36px;
+    height: 36px;
+}
+
+.rounded{
+    border-radius: 0.25rem;
+}

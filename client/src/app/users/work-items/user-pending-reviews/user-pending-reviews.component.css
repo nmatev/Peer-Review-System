@@ -1,0 +1,28 @@
+/* li{
+    margin: 1rem;
+    list-style-type: none;
+}
+ul{
+    padding: 1rem;
+} */
+
+.ul-padding { 
+    padding: 1rem;
+}
+
+.li-padding {
+    margin: 1rem;
+    list-style-type: none;
+}
+
+.btn-viewMore{
+    background-color: burlywood;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-viewMore:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .2s all ease-in-out;
+}

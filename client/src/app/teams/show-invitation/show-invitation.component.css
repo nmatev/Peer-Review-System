@@ -1,0 +1,25 @@
+.btn-adminAccept{
+    background: lawngreen;
+    color: black;
+    font-weight: bold;
+}
+.btn-adminReject{
+    background: orangered;
+    color: black;
+    font-weight: bold;
+}
+.btn-adminRemove{
+    background: red;
+    color: black;
+    font-weight: bold;
+}
+.btn-adminReject:hover, .btn-adminAccept:hover, .btn-adminRemove:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+.card{
+    min-width: 40rem;
+}
+h1{
+    font-weight: 900;
+}

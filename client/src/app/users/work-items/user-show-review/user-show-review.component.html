@@ -1,0 +1,84 @@
+<h3 class="text-white text-center p-5">{{reviewRequest.foundWorkItem.title}} review details</h3>
+
+<div class="d-flex flex-column align-items-center text-white">
+
+    <div class="col-md-6 card text-white bg-dark mb-3">
+        <h4 *ngIf="this.reviewRequestStatus" class="text-center">{{reviewRequestStatus}}</h4>
+        <div class="card-header text-center text-muted">{{reviewRequest.foundWorkItem.title}}</div>
+        <div class="card-body">
+            <p class="card-subtitle mb-2 text-center">{{reviewRequest.foundWorkItem.description}}</p>
+        </div>
+
+        <div *ngIf="this.isAdmin || this.isReviewer" class="d-flex justify-content-between">
+            <button class="btn btn-adminAccept" (click)="this.createVote('1')"
+                [attr.disabled]="this.isVoted ? '' : null">Accept</button>
+            <button class="btn btn-adminReject" (click)="this.createVote('2')"
+                [attr.disabled]="this.isVoted ? '' : null">Reject</button>
+
+        </div>
+        <br>
+        <div *ngIf=" this.foundFile">
+            <div>Attached files:</div>
+            <a class="badge badge-dark" (click)="this.downloadFile()">{{foundFile.fileName}}</a>
+            <!-- <div></div> -->
+        </div>
+    </div>
+
+
+</div>
+
+<div class="wrapper d-flex flex-column align-items-center text-white">
+
+    <div class="col-md-6">
+        <ul class="d-flex flex-column align-items-center p-0">
+
+            <div class="p-0 col-md-12 d-flex justify-content-end mb-2">
+                <button class="align-self-end" (click)="this.openComment()" class="btn btn-info">
+                    <span *ngIf="!this.commentState">
+                        <i class="fas fa-comment"></i>
+                        <!-- Reply -->
+                    </span>
+                    <span *ngIf="this.commentState">
+                        <i class="fas fa-comment-slash"></i>
+                        <!-- Cancel -->
+                    </span>
+                </button>
+            </div>
+
+            <div *ngIf="this.commentState" class="coment-holder">
+                <div>
+                    <textarea class="commentArea" name="" rows="3" cols="69" placeholder="Enter comment"
+                        #description></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-info" (click)="this.createComment(description.value)">
+                        <i class="fas fa-comment"></i>
+                        Reply
+                    </button>
+                </div>
+
+            </div>
+
+            <li *ngFor="let comment of workItemComments" class="text-white col-md-12 p-0">
+                <div class="d-flex justify-content-between align-items-center author">
+                    <div>
+                        <i class="fas fa-user"></i>
+                        {{comment.__author__.name}}
+                    </div>
+                    <div>
+                        {{comment.createdOn | timeAgo}}
+                    </div>
+                </div>
+                <div class="description">
+                    <p>
+                        {{comment.description}}
+                    </p>
+                </div>
+                <br>
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>

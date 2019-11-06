@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/user/documents/review-requests">
+          My Review Requests
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/user/documents/teams">
+          Team Review Requests
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/user/documents/pending-review-requests">
+          Pending Review Requests
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<br>
+<div class="wrapper col-md-11 m-auto card-group">
+  <div class="col-md-2 m-2 height" *ngFor="let reviewRequest of pendingReviewRequests">
+
+    <div class="card text-white bg-dark mb-3 h-100">
+
+      <div class="card-header text-center text-muted">{{reviewRequest.title}}</div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-center">{{reviewRequest.status}}</h6>
+        <p class="card-text"> {{reviewRequest.description | slice:0:25}} </p>
+      </div>
+
+      <button class="btn btn-viewMore" (click)="this.getReviewRequest(reviewRequest.id)">View more</button>
+
+    </div>
+
+  </div>
+</div>

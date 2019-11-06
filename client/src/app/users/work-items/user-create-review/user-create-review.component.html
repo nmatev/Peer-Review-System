@@ -1,0 +1,98 @@
+<div class="card col-md-11 m-auto work-item-holder">
+    <div class="card-body">
+        <h4 class="card-title text-center">Upload your work item</h4>
+
+
+        <form class="forms-sample" [formGroup]="this.submitForm" (ngSubmit)="this.submitWork()">
+
+            <div class="input-group col-xs-12 d-flex justify-content-between align-items-center">
+                <input class="inputfile" type="file" id="file" #file hidden
+                    (change)="this.fileToUpload = $event.target.files[0]">
+                <label for="file">
+                    <i *ngIf="!this.fileToUpload" class="fas fa-upload mr-2"></i>
+                    <span *ngIf="!this.fileToUpload">Choose a file</span>
+                    <span *ngIf="this.fileToUpload">{{this.fileToUpload.name}}</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input #title formControlName="title" id="title" type="text" class="form-control">
+                <div *ngIf="!!this.submitForm.controls.title.invalid && !!this.submitForm.controls.title.dirty"
+                    class="alert alert-danger" role="alert">
+                    <div *ngIf="!this.submitForm.controls.title.errors.minLength">
+                        Title must be at least 3 characters long!
+                    </div>
+                </div>
+
+                <label for="comments">Comment</label>
+                <input #comments formControlName="comments" id="comments" type="text" class="form-control">
+                <div *ngIf="!!this.submitForm.controls.comments.invalid && !!this.submitForm.controls.comments.dirty"
+                    class="alert alert-danger" role="alert">
+                    <div *ngIf="!this.submitForm.controls.comments.errors.minLength">
+                        Comments must be at least 3 characters long!
+                    </div>
+                </div>
+
+                <br>
+                <div>
+                    <select (change)="this.getTeamMembers(this.selectedTeam)" [(ngModel)]="selectedTeam"
+                        [ngModelOptions]="{standalone: true}" class="btn btn-secondary">
+                        <option hidden selected value="select">Choose a team</option>
+                        <option *ngFor="let team of this.allTeams">
+                            {{team.name}}
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="teamMembersHolder d-flex">
+
+                    <div *ngIf="isVisible(this.teamMembers)" class="mr-5">
+                        <br>
+                        <div class="text-center">Select reviewers:</div>
+                        <div>
+                            <div class="teamMembers">
+                                <div *ngFor="let member of teamMembers">
+                                    <div (click)="this.selectMember(member)"
+                                        class="d-flex justify-content-center align-items-center">
+                                        <span class="members">
+                                            {{member.email}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="isVisible(this.reviewers)">
+                        <br>
+                        <div class="text-center">Selected reviewers:</div>
+                        <div>
+                            <div class="selectedTeamMembers">
+                                <div *ngFor="let reviewer of reviewers">
+                                    <div (click)="this.removeMember(reviewer)"
+                                        class="d-flex justify-content-center align-items-center">
+                                        <span class="members">{{reviewer.email}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <angular-editor formControlName="description" id="description">
+                </angular-editor>
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="submitForm.invalid">Submit</button>
+            <button type="button" routerLink="/home" class="btn btn-danger ml-3">Cancel</button>
+
+        </form>
+    </div>
+</div>

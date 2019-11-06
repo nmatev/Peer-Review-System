@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <nav class="d-flex justify-content-between
+        align-items-center navbar navbar-expand
+        navbar-light bg-white topbar
+        static-top shadow d-flex">
+
+        <div class="d-flex justify-content-between align-items-center col-sm-3">
+            <div class="d-none d-md-block col-xs-3 text-white">
+
+                <img routerLink="/home" alt="" id="logo-image" src="">
+
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <div *ngIf="this.isLoggedIn">
+                <app-notifications></app-notifications>
+            </div>
+
+            <div *ngIf="this.isLoggedIn" class="profile-picture-holder">
+                <img *ngIf="this.profilePicture" [src]="this.profilePicture" id="profileDropdown"
+                    class="profile-picture animate slideIn" alt="" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+
+                <div class="dropdown dropleft">
+
+                    <div class="profile-comp-holder dropdown-menu dropdown-menu-left animate slideIn"
+                        aria-labelledby="profileDropdown">
+                        <a class="dropdown-item">
+                            <i class="fas fa-user-cog"></i>
+                            <span class="profile-text" (click)="this.openProfile()">{{this.currentUserName}}</span>
+                        </a>
+                        <a class="dropdown-item" (click)="this.logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="profile-text">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <button *ngIf="!this.isLoggedIn" class="btn btn-warning mr-2" routerLink="/login">Login</button>
+            <!-- <button *ngIf="!this.isLoggedIn" class="btn btn-info mr-2" routerLink="/register">Register</button> -->
+            <!-- <button *ngIf="this.isLoggedIn" class="btn btn-info mr-2" (click)="this.logout()">Logout</button> -->
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,12 @@
+.wrapper{
+    
+    height: 80%;
+    overflow-y: auto;
+    /* margin-bottom: 8rem; */
+}
+.wrapper2{
+    height: 100%;
+}
+h1{
+    font-weight: 900;
+}

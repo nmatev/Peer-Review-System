@@ -1,0 +1,60 @@
+.btn-adminAccept{
+    background: lawngreen;
+    color: black;
+    font-weight: bold;
+}
+.wrapper{
+    height: 55%;
+    overflow-y: auto;
+}
+h3{
+    font-weight: 900;
+}
+li{
+    list-style-type: none;
+}
+.badge-dark{
+    padding: 0.5rem;
+}
+.badge-dark:hover{
+    cursor: pointer;
+}
+.btn-adminReject{
+    background: orangered;
+    color: black;
+    font-weight: bold;
+}
+.btn-adminReject:hover, .btn-adminAccept:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+.description{
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+.author{
+    border-bottom: 1px solid darkorange;
+}
+.author>:nth-child(1){
+    font-size: 1.8rem;
+}
+.author>:nth-child(2){
+    font-size: 1.2rem;
+}
+.coment-holder{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.commentArea{
+    background: #343a40;
+    color: white;
+    border: none;
+    border-bottom: 1px solid darkorange;
+    font-size: 1.3rem;
+}
+.commentsInfo{
+    max-width: 500px;
+}
+textarea::placeholder {
+    color: white;  
+}

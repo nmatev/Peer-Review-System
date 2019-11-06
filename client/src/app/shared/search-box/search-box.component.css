@@ -1,0 +1,15 @@
+.workItems:hover{
+    cursor: pointer;
+    border: 2px solid orangered;
+    color: lightgray;
+    transition: 0.2s all ease-in-out;
+}
+.workItems, .hover-member{
+    border: 2px solid transparent;
+}
+.hover-member:hover{
+    cursor: pointer;
+    border: 2px solid orangered;
+    color: lightgray;
+    transition: 0.2s all ease-in-out;
+}
